@@ -2,18 +2,15 @@
 #include "../src/io.cpp"
 #include <string>
 
-std::string nope(int a)
-{
+std::string nope(int a) {
   return "nope";
 }
 
-bool is_even(int a)
-{
+bool is_even(int a) {
   return a % 2 == 0;
 }
 
-int main()
-{
+int main() {
   prn("hello");
   prn(inc(3));
   prn(dec(3));
