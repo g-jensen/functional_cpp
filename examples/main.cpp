@@ -27,6 +27,18 @@ int main() {
   prnv(filter(is_even, v1));
   prnv(filter([](int a){ return a % 2 == 1; },v1));
 
+  prn("cons, conj:");
+  prnv(conj(v1,4));
+  prnv(cons(v1,0));
+
+  prn("assoc vec:");
+  prnv(assoc(v1,0,2));
+
+  prn("assoc map:");
+  std::map<int,std::string> map;
+  auto m2 = assoc(map,0,std::string("hi"));
+  prnm(assoc(m2,5,std::string("hello")));
+
   prn("vector is unchanged:");
   prnv(v1);
 }
