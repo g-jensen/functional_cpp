@@ -33,9 +33,9 @@ T dec(T val) {
   return val - 1;
 }
 
-template <class F1, class F2>
-auto comp(F1 f1, F2 f2) {
-  return [f1,f2](auto a){ return f1(f2(a)); };
+template <class F, class G>
+auto comp(F f, G g) {
+  return [f,g](auto a){ return f(g(a)); };
 }
 
 template <typename Input, class Output>
