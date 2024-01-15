@@ -1,6 +1,7 @@
 #include <functional>
 #include <vector>
 #include <type_traits>
+#include <map>
 
 template <typename T>
 T inc(T val) {
@@ -28,4 +29,28 @@ std::vector<T> filter(Condition f, std::vector<T> v) {
     if (f(i))
       out.push_back(i);
   return out;
+}
+
+template <typename T>
+std::vector<T> conj(std::vector<T> v, T val) {
+  v.push_back(val);
+  return v;
+}
+
+template <typename T>
+std::vector<T> cons(std::vector<T> v, T val) {
+  v.insert(v.begin(),val);
+  return v;
+}
+
+template <typename T>
+std::vector<T> assoc(std::vector<T> v, size_t idx, T val) {
+  v[idx] = val;
+  return v;
+}
+
+template <typename K, typename V>
+std::map<K, V> assoc(std::map<K, V> m, K key, V value) {
+  m[key] = value;
+  return m;
 }
