@@ -4,6 +4,11 @@
 #include <map>
 
 template <typename T>
+T identity(T v) {
+  return v;
+}
+
+template <typename T>
 auto constantly(T v) {
   return [v](){ return v; };
 }
@@ -58,6 +63,14 @@ bool every(Condition f, std::vector<T> v) {
   return true;
 }
 
+template <typename T, class Condition>
+bool any(Condition f, std::vector<T> v) {
+  for (auto i : v)
+    if (f(i))
+      return true;
+  return false;
+}
+
 template <typename T>
 std::vector<T> conj(std::vector<T> v, T val) {
   v.push_back(val);
@@ -68,6 +81,16 @@ template <typename T>
 std::vector<T> cons(std::vector<T> v, T val) {
   v.insert(v.begin(),val);
   return v;
+}
+
+template <typename T>
+T first(std::vector<T> v) {
+  return v[0];
+}
+
+template <typename T>
+T last(std::vector<T> v) {
+  return v[v.size()-1];
 }
 
 template <typename T>

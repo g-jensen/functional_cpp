@@ -27,9 +27,17 @@ int main() {
   prn(every(is_even<int>, v1));
   prn(every(is_even<int>, map([](int a){return a*2;},v1)));
 
+  prn("any:");
+  prn(any(is_even<int>, v1));
+  prn(any(is_odd<int>, map([](int a){return a*2;},v1)));
+
   prn("cons, conj:");
   prnv(conj(v1,4));
   prnv(cons(v1,0));
+
+  prn("first, last:");
+  prn(first(v1));
+  prn(last(v1));
 
   prn("assoc vec:");
   prnv(assoc(v1,0,2));
@@ -50,6 +58,9 @@ int main() {
   prn("constantly:");
   auto five = constantly(5);
   prn(five());
+
+  prn("identity:");
+  prn(identity("hi"));
 
   prn("count:");
   prn(count(v1));
