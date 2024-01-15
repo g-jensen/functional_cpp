@@ -23,6 +23,10 @@ int main() {
   prnv(filter(is_even<int>, v1));
   prnv(filter([](int a){ return a % 2 == 1; },v1));
 
+  prn("every:");
+  prn(every(is_even<int>, v1));
+  prn(every(is_even<int>, map([](int a){return a*2;},v1)));
+
   prn("cons, conj:");
   prnv(conj(v1,4));
   prnv(cons(v1,0));
@@ -35,6 +39,9 @@ int main() {
   auto m2 = assoc(map,0,std::string("hi"));
   prnm(assoc(m2,5,std::string("hello")));
 
+  prn("dissoc map:");
+  prnm(dissoc(m2,5));
+
   prn("comp:");
   auto not_odd = comp(is_odd<int>,inc<int>);
   prn(not_odd(1));
@@ -43,6 +50,9 @@ int main() {
   prn("constantly:");
   auto five = constantly(5);
   prn(five());
+
+  prn("count:");
+  prn(count(v1));
 
   prn("vector is unchanged:");
   prnv(v1);

@@ -50,6 +50,14 @@ std::vector<T> filter(Condition f, std::vector<T> v) {
   return out;
 }
 
+template <typename T, class Condition>
+bool every(Condition f, std::vector<T> v) {
+  for (auto i : v)
+    if (!f(i))
+      return false;
+  return true;
+}
+
 template <typename T>
 std::vector<T> conj(std::vector<T> v, T val) {
   v.push_back(val);
@@ -63,6 +71,16 @@ std::vector<T> cons(std::vector<T> v, T val) {
 }
 
 template <typename T>
+size_t count(std::vector<T> v) {
+  return v.size();
+}
+
+template <typename T>
+bool is_empty(std::vector<T> v) {
+  return count(v) == 0;
+}
+
+template <typename T>
 std::vector<T> assoc(std::vector<T> v, size_t idx, T val) {
   v[idx] = val;
   return v;
@@ -71,5 +89,11 @@ std::vector<T> assoc(std::vector<T> v, size_t idx, T val) {
 template <typename K, typename V>
 std::map<K, V> assoc(std::map<K, V> m, K key, V value) {
   m[key] = value;
+  return m;
+}
+
+template <typename K, typename V>
+std::map<K, V> dissoc(std::map<K, V> m, K key) {
+  m.erase(key);
   return m;
 }
