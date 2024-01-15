@@ -4,6 +4,16 @@
 #include <map>
 
 template <typename T>
+bool is_even(T a) {
+  return a % 2 == 0;
+}
+
+template <typename T>
+bool is_odd(T a) {
+  return a % 2 == 1;
+}
+
+template <typename T>
 T inc(T val) {
   return val + 1;
 }

@@ -6,10 +6,6 @@ std::string nope(int a) {
   return "nope";
 }
 
-bool is_even(int a) {
-  return a % 2 == 0;
-}
-
 int main() {
   prn("hello");
   prn(inc(3));
@@ -24,7 +20,7 @@ int main() {
   prnv(map(nope, v1));
 
   prn("filter:");
-  prnv(filter(is_even, v1));
+  prnv(filter(is_even<int>, v1));
   prnv(filter([](int a){ return a % 2 == 1; },v1));
 
   prn("cons, conj:");
