@@ -40,6 +40,10 @@ int main() {
   prn(not_odd(1));
   prn(not_odd(2));
 
+  prn("constantly:");
+  auto five = constantly(5);
+  prn(five());
+
   prn("vector is unchanged:");
   prnv(v1);
 }

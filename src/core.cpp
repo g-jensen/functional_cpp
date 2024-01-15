@@ -4,6 +4,11 @@
 #include <map>
 
 template <typename T>
+auto constantly(T v) {
+  return [v](){ return v; };
+}
+
+template <typename T>
 bool is_even(T a) {
   return a % 2 == 0;
 }
