@@ -35,6 +35,11 @@ int main() {
   auto m2 = assoc(map,0,std::string("hi"));
   prnm(assoc(m2,5,std::string("hello")));
 
+  prn("comp:");
+  auto not_odd = comp(is_odd<int>,inc<int>);
+  prn(not_odd(1));
+  prn(not_odd(2));
+
   prn("vector is unchanged:");
   prnv(v1);
 }

@@ -23,9 +23,13 @@ T dec(T val) {
   return val - 1;
 }
 
+template <class F1, class F2>
+auto comp(F1 f1, F2 f2) {
+  return [f1,f2](auto a){ return f1(f2(a)); };
+}
+
 template <typename Input, class Output>
-auto map(Output f, std::vector<Input> v)
-    -> std::vector<decltype(f(std::declval<Input>()))> {
+auto map(Output f, std::vector<Input> v) {
   std::vector<decltype(f(std::declval<Input>()))> out(v.size());
   for (int i = 0; i < v.size(); i++)
     out[i] = f(v[i]);
