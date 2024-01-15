@@ -2,9 +2,14 @@
 #include <vector>
 #include <map>
 
-template <class T>
-void prn(T val) {
-  std::cout << val << std::endl;
+void prn() {
+  std::cout << std::endl;
+}
+
+template <typename T, typename... Types>
+void prn(T val, Types... vals) {
+  std::cout << val << " ";
+  prn(vals...);
 }
 
 template <class T>

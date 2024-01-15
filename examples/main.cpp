@@ -8,6 +8,7 @@ std::string nope(int a) {
 
 int main() {
   prn("hello");
+  prn("bye","other thing",4);
   prn(inc(3));
   prn(dec(3));
   auto v1 = std::vector<int>{1, 2, 3};
@@ -22,6 +23,12 @@ int main() {
   prn("filter:");
   prnv(filter(is_even<int>, v1));
   prnv(filter([](int a){ return a % 2 == 1; },v1));
+
+  prn("apply:");
+  prn(apply(add<int>,v1));
+  prn(apply(sub<int>,v1));
+  prn(apply(mult<int>,v1));
+  prn(apply(div<int>,reverse(v1)));
 
   prn("every:");
   prn(every(is_even<int>, v1));
@@ -54,6 +61,12 @@ int main() {
   auto not_odd = comp(is_odd<int>,inc<int>);
   prn(not_odd(1));
   prn(not_odd(2));
+
+  prn("range:");
+  prnv(range(-2,10));
+
+  prn("reverse:");
+  prnv(reverse(v1));
 
   prn("constantly:");
   auto five = constantly(5);
