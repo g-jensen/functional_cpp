@@ -19,12 +19,6 @@ auto partial(F f, T val) {
   return [f,val](auto arg){ return f(val,arg); };
 }
 
-template <typename Output, typename A, typename B>
-auto partial(std::function<Output(A,B)> f, A val) {
-  return [f,val](auto arg){ return f(val,arg); };
-}
-
-
 template <typename T>
 bool is_even(T a) {
   return a % 2 == 0;
