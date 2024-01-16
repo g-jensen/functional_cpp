@@ -6,5 +6,5 @@ int divisible_by_3_or_5(int n) {
 }
 
 int main() {
-  prn(apply(add<int>,filter(divisible_by_3_or_5,range(1,1000))));
+  prn(reduce(add<int>,filter(divisible_by_3_or_5,range(1,1000))));
 }

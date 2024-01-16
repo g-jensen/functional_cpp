@@ -6,6 +6,10 @@ std::string nope(int a) {
   return "nope";
 }
 
+int add_three_nums(int a, int b, int c) {
+  return a+b+c;
+}
+
 int main() {
   prn("hello");
   prn("bye","other thing",4);
@@ -24,11 +28,11 @@ int main() {
   prnv(filter(is_even<int>, v1));
   prnv(filter([](int a){ return a % 2 == 1; },v1));
 
-  prn("apply:");
-  prn(apply(add<int>,v1));
-  prn(apply(sub<int>,v1));
-  prn(apply(mult<int>,v1));
-  prn(apply(div<int>,reverse(v1)));
+  prn("reduce:");
+  prn(reduce(add<int>,v1));
+  prn(reduce(sub<int>,v1));
+  prn(reduce(mult<int>,v1));
+  prn(reduce(div<int>,reverse(v1)));
 
   prn("every:");
   prn(every(is_even<int>, v1));
@@ -74,6 +78,18 @@ int main() {
 
   prn("identity:");
   prn(identity("hi"));
+
+  prn("partial:");
+  auto filter_evens = partial(filter<int>,is_even<int>);
+  prnv(filter_evens(v1));
+  auto sum = partial(reduce<int>,add<int>);
+  prn(sum(v1));
+
+  // I don't know why anyone would do this,
+  // but this is just to showcase how to partial a composition
+  auto comp_count = partial(comp<std::vector<int>,std::vector<int>,int>,count<int>);
+  auto reverse_and_count = comp_count(reverse<int>);
+  prn(reverse_and_count(v1));
 
   prn("count:");
   prn(count(v1));
