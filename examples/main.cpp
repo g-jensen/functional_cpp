@@ -96,4 +96,7 @@ int main() {
 
   prn("vector is unchanged:");
   prnv(v1);
+
+  prn("read_line:");
+  prn("input:",read_line<std::string>());
 }

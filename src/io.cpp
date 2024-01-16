@@ -34,3 +34,10 @@ void prnm(std::map<K,V> m) {
   }
   std::cout << '}' << std::endl;
 }
+
+template <typename T>
+T read_line() {
+  T in;
+  std::cin>>in;
+  return in;
+}
