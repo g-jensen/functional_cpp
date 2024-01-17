@@ -4,15 +4,15 @@
 #include <map>
 #include <algorithm>
 
-template <typename T, class F>
-T fif(bool cond, T success, T failure) {
+template <typename T>
+T cond(bool cond, T success, T failure) {
   if (cond)
     return success;
   else
     return failure;
 }
 
-template <typename T, class F>
+template <typename T>
 T when(bool cond, T success) {
   if (cond)
     return success;
