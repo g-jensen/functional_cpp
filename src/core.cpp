@@ -4,6 +4,22 @@
 #include <map>
 #include <algorithm>
 
+template <typename T, class F>
+T fif(bool cond, T success, T failure) {
+  if (cond)
+    return success;
+  else
+    return failure;
+}
+
+template <typename T, class F>
+T when(bool cond, T success) {
+  if (cond)
+    return success;
+  else
+    return T(NULL);
+}
+
 template <typename T>
 T identity(T v) {
   return v;
@@ -27,6 +43,16 @@ bool is_even(T a) {
 template <typename T>
 bool is_odd(T a) {
   return a % 2 == 1;
+}
+
+template <typename T>
+bool positive(T a) {
+  return a > 0;
+}
+
+template <typename T>
+bool negative(T a) {
+  return a < 0;
 }
 
 template <typename T>
@@ -75,8 +101,18 @@ T first(std::vector<T> v) {
 }
 
 template <typename T>
+T first(T* v) {
+  return v[0];
+}
+
+template <typename T>
 T last(std::vector<T> v) {
   return v[v.size()-1];
+}
+
+template <typename T>
+T last(T* v, size_t size) {
+  return v[size-1];
 }
 
 template <typename T>
@@ -104,7 +140,7 @@ std::vector<T> reverse(std::vector<T> v) {
 }
 
 template <typename Input, class Output>
-auto map(std::function<Output(const Input)> f, std::vector<Input> v) {
+std::vector<Output> map(std::function<Output(const Input)> f, std::vector<Input> v) {
   std::vector<Output>out(v.size());
   for (int i = 0; i < v.size(); i++)
     out[i] = f(v[i]);
@@ -135,6 +171,12 @@ std::vector<T> filter(Output f, std::vector<T> v) {
     if (f(i))
       out.push_back(i);
   return out;
+}
+
+template <class F>
+void repeatedly(F f, size_t n) {
+  for (int i = 0; i < n; i++)
+    f();
 }
 
 template <typename T>
@@ -172,6 +214,22 @@ bool every(Output f, std::vector<T> v) {
 }
 
 template <typename T>
+bool every(std::function<bool(const T)> f, T* v, size_t size) {
+  for (int i = 0; i < size; i++)
+    if (!f(v[i]))
+      return false;
+  return true;
+}
+
+template <typename T, class Output>
+bool every(Output f, T* v, size_t size) {
+  for (int i = 0; i < size; i++)
+    if (!f(v[i]))
+      return false;
+  return true;
+}
+
+template <typename T>
 bool any(std::function<bool(const T)> f, std::vector<T> v) {
   for (auto i : v)
     if (f(i))
@@ -183,6 +241,22 @@ template <typename T, class Output>
 bool any(Output f, std::vector<T> v) {
   for (auto i : v)
     if (f(i))
+      return true;
+  return false;
+}
+
+template <typename T>
+bool any(std::function<bool(const T)> f, T* v, size_t size) {
+  for (int i = 0; i < size; i++)
+    if (f(v[i]))
+      return true;
+  return false;
+}
+
+template <typename T, class Output>
+bool any(Output f, T* v, size_t size) {
+  for (int i = 0; i < size; i++)
+    if (f(v[i]))
       return true;
   return false;
 }
