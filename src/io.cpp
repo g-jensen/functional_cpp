@@ -36,8 +36,14 @@ void prnm(std::map<K,V> m) {
 }
 
 template <typename T>
-T read_line() {
+T read() {
   T in;
-  std::cin>>in;
+  std::cin >> in;
+  return in;
+}
+
+std::string read_line() {
+  std::string in;
+  std::getline(std::cin,in);
   return in;
 }
