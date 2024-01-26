@@ -94,16 +94,16 @@ int main() {
   prn("count:");
   prn(count(v1));
 
-  prn("zipmap");
+  prn("zipmap:");
   prnm(zipmap(v1,std::vector<std::string>{"hi","bye","nope"}));
 
-  prn("map_indexed");
+  prn("map_indexed:");
   prnv(map_indexed([](int idx, std::string s){return std::to_string(idx) + ": " + s;},std::vector<std::string>{"hi","bye","nope"}));
 
-  prn("filter_indexed");
+  prn("filter_indexed:");
   prnv(filter_indexed([](int idx, int val){return is_even(idx) || is_even(val);},std::vector<int>{1,1,2,2,3,3}));
 
-  prn("repeat");
+  prn("repeat:");
   prnv(repeat("hi",10));
 
   prn("vector is unchanged:");
@@ -112,7 +112,7 @@ int main() {
   prn("read_line: (enter to see str examples)");
   prn("input:",read_line());
 
-  prn("str");
+  prn("str:");
   prn(str("hi", "n o", " yes"));
   prn(str(std::vector<std::string>{"sdflk"," aa","123"}));
   prn(str(std::vector<char>{'a',' ','b','c'}));

@@ -1,5 +1,6 @@
 #include "src/core.cpp"
 #include "src/io.cpp"
+#include "src/str.cpp"
 
 // typedef 
 /*
