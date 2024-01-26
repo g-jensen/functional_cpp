@@ -20,3 +20,10 @@ std::string str(std::vector<char> chars) {
   return std::string(chars.begin(),chars.end());
 }
 
+std::string str_repeat(std::string val, size_t count) {
+  return str(repeat(val,count));
+}
+
+std::string str_repeat(char val, size_t count) {
+  return str(repeat(val,count));
+}

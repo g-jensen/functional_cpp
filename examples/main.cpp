@@ -116,4 +116,8 @@ int main() {
   prn(str("hi", "n o", " yes"));
   prn(str(std::vector<std::string>{"sdflk"," aa","123"}));
   prn(str(std::vector<char>{'a',' ','b','c'}));
+
+  prn("str_repeat:");
+  prn(str_repeat("hi",5));
+  prn(str_repeat('o',5));
 }
