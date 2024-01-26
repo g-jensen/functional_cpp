@@ -6,6 +6,10 @@
 #include <map>
 #include <algorithm>
 
+bool nein(bool b) {
+  return !b;
+}
+
 template <typename T>
 T cond(bool cond, T success, T failure) {
   if (cond)

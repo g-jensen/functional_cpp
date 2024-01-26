@@ -15,6 +15,7 @@ int main() {
   prn("bye","other thing",4);
   prn(inc(3));
   prn(dec(3));
+  prn(nein(true));
   auto v1 = std::vector<int>{1, 2, 3};
   prn("original vec:");
   prnv(v1);
