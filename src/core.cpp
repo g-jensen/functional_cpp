@@ -336,3 +336,8 @@ std::map<K, V> dissoc(std::map<K, V> m, K key) {
   m.erase(key);
   return m;
 }
+
+template <typename T>
+std::vector<T> repeat(T val, size_t count) {
+  return std::vector<T>(count,val);
+}
