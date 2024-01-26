@@ -51,6 +51,16 @@ bool is_odd(T a) {
   return a % 2 == 1;
 }
 
+template <typename T1, typename T2>
+bool less_than(T1 a, T2 b) {
+  return a < b;
+}
+
+template <typename T1, typename T2>
+bool greater_than(T1 a, T2 b) {
+  return a > b;
+}
+
 template <typename T>
 bool positive(T a) {
   return a > 0;
