@@ -1,6 +1,6 @@
 #include "../src/core.cpp"
 #include "../src/io.cpp"
-#include <string>
+#include "../src/str.cpp"
 
 std::string nope(int a) {
   return "nope";
@@ -103,9 +103,17 @@ int main() {
   prn("filter_indexed");
   prnv(filter_indexed([](int idx, int val){return is_even(idx) || is_even(val);},std::vector<int>{1,1,2,2,3,3}));
 
+  prn("repeat");
+  prnv(repeat("hi",10));
+
   prn("vector is unchanged:");
   prnv(v1);
 
-  prn("read_line:");
+  prn("read_line: (enter to see str examples)");
   prn("input:",read_line());
+
+  prn("str");
+  prn(str("hi", "n o", " yes"));
+  prn(str(std::vector<std::string>{"sdflk"," aa","123"}));
+  prn(str(std::vector<char>{'a',' ','b','c'}));
 }
