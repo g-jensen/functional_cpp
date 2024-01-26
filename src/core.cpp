@@ -127,7 +127,7 @@ bool is_empty(std::vector<T> v) {
 
 std::vector<int> range(int start, int end) {
   std::vector<int> out;
-  for (int i = start; i < end; i++) {
+  for (size_t i = start; i < end; i++) {
     out.push_back(i);
   }
   return out;
@@ -142,7 +142,7 @@ std::vector<T> reverse(std::vector<T> v) {
 template <typename Input, class Output>
 std::vector<Output> map(std::function<Output(const Input)> f, std::vector<Input> v) {
   std::vector<Output>out(v.size());
-  for (int i = 0; i < v.size(); i++)
+  for (size_t i = 0; i < v.size(); i++)
     out[i] = f(v[i]);
   return out;
 }
@@ -150,7 +150,7 @@ std::vector<Output> map(std::function<Output(const Input)> f, std::vector<Input>
 template <typename Input, class Output>
 auto map(Output f, std::vector<Input> v) {
   std::vector<decltype(f(std::declval<Input>()))>out(v.size());
-  for (int i = 0; i < v.size(); i++)
+  for (size_t i = 0; i < v.size(); i++)
     out[i] = f(v[i]);
   return out;
 }
@@ -159,7 +159,7 @@ template <typename K, typename V>
 std::map<K, V> zipmap(std::vector<K> keys, std::vector<V> vals) {
   std::map<K,V> out;
   if (keys.size() != vals.size()) {return out;}
-  for (int i = 0; i < keys.size(); i++) {
+  for (size_t i = 0; i < keys.size(); i++) {
     out.insert(std::pair(keys[i],vals[i]));
   }
   return out;
@@ -219,7 +219,7 @@ std::vector<T> filter_indexed(Output f, std::vector<T> v) {
 
 template <class F>
 void repeatedly(F f, size_t n) {
-  for (int i = 0; i < n; i++)
+  for (size_t i = 0; i < n; i++)
     f();
 }
 
@@ -227,7 +227,7 @@ template <typename T>
 T reduce(std::function<T(const T, const T)> f, std::vector<T> v) {
   if (is_empty(v)) return T(NULL);
   T out = v[0];
-  for (int i = 1; i < v.size(); i++)
+  for (size_t i = 1; i < v.size(); i++)
     out = f(out,v[i]);
   return out;
 }
@@ -236,7 +236,7 @@ template <typename T, class Output>
 T reduce(Output f, std::vector<T> v) {
   if (is_empty(v)) return T(NULL);
   T out = v[0];
-  for (int i = 1; i < v.size(); i++)
+  for (size_t i = 1; i < v.size(); i++)
     out = f(out,v[i]);
   return out;
 }
@@ -259,7 +259,7 @@ bool every(Output f, std::vector<T> v) {
 
 template <typename T>
 bool every(std::function<bool(const T)> f, T* v, size_t size) {
-  for (int i = 0; i < size; i++)
+  for (size_t i = 0; i < size; i++)
     if (!f(v[i]))
       return false;
   return true;
@@ -267,7 +267,7 @@ bool every(std::function<bool(const T)> f, T* v, size_t size) {
 
 template <typename T, class Output>
 bool every(Output f, T* v, size_t size) {
-  for (int i = 0; i < size; i++)
+  for (size_t i = 0; i < size; i++)
     if (!f(v[i]))
       return false;
   return true;
@@ -291,7 +291,7 @@ bool any(Output f, std::vector<T> v) {
 
 template <typename T>
 bool any(std::function<bool(const T)> f, T* v, size_t size) {
-  for (int i = 0; i < size; i++)
+  for (size_t i = 0; i < size; i++)
     if (f(v[i]))
       return true;
   return false;
@@ -299,7 +299,7 @@ bool any(std::function<bool(const T)> f, T* v, size_t size) {
 
 template <typename T, class Output>
 bool any(Output f, T* v, size_t size) {
-  for (int i = 0; i < size; i++)
+  for (size_t i = 0; i < size; i++)
     if (f(v[i]))
       return true;
   return false;
