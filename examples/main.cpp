@@ -94,9 +94,12 @@ int main() {
   prn("count:");
   prn(count(v1));
 
+  prn("zipmap");
+  prnm(zipmap(v1,std::vector<std::string>{"hi","bye","nope"}));
+
   prn("vector is unchanged:");
   prnv(v1);
 
   prn("read_line:");
-  prn("input:",read_line<std::string>());
+  prn("input:",read_line());
 }

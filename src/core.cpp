@@ -290,3 +290,13 @@ std::map<K, V> dissoc(std::map<K, V> m, K key) {
   m.erase(key);
   return m;
 }
+
+template <typename K, typename V>
+std::map<K, V> zipmap(std::vector<K> keys, std::vector<V> vals) {
+  std::map<K,V> out;
+  if (keys.size() != vals.size()) {return out;}
+  for (int i = 0; i < keys.size(); i++) {
+    out.insert(std::pair(keys[i],vals[i]));
+  }
+  return out;
+}
