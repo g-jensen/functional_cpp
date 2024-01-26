@@ -341,3 +341,12 @@ template <typename T>
 std::vector<T> repeat(T val, size_t count) {
   return std::vector<T>(count,val);
 }
+
+template <typename T, class Condition, class Output>
+std::vector<T> iterate_while(Condition c, T initial, Output f) {
+  std::vector<T> out = {initial};
+  while(c(last(out))) {
+    out.push_back(f(last(out)));
+  }
+  return out;
+}

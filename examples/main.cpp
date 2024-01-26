@@ -106,6 +106,9 @@ int main() {
   prn("repeat:");
   prnv(repeat("hi",10));
 
+  prn("iterate_while");
+  prnv(iterate_while([](int a){return a < 5;},1,inc<int>));
+
   prn("vector is unchanged:");
   prnv(v1);
 
