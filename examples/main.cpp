@@ -16,8 +16,9 @@ int main() {
   prn(inc(3));
   prn(dec(3));
   prn(nein(true));
-  prn(less_than(1,2));
-  prn(greater_than(1,2));
+  auto less_than_two = less_than<int>(2);
+  prn(less_than_two(1));
+  prn(less_than_two(2));
   auto v1 = std::vector<int>{1, 2, 3};
   prn("original vec:");
   prnv(v1);
