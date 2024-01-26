@@ -53,12 +53,12 @@ bool is_odd(T a) {
 
 template <typename T>
 auto less_than(T a) {
-  return [](int b){return b < a};
+  return [](T b){return b < a};
 }
 
 template <typename T>
 auto greater_than(T a) {
-  return [](int b){return b > a};
+  return [](T b){return b > a};
 }
 
 template <typename T>
