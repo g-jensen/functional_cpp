@@ -176,7 +176,7 @@ std::map<K, V> zipmap(std::vector<K> keys, std::vector<V> vals) {
   std::map<K,V> out;
   if (keys.size() != vals.size()) {return out;}
   for (size_t i = 0; i < keys.size(); i++) {
-    out.insert(std::pair(keys[i],vals[i]));
+    out.insert(std::pair<K,V>(keys[i],vals[i]));
   }
   return out;
 }
