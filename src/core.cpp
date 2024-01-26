@@ -51,13 +51,13 @@ bool is_odd(T a) {
   return a % 2 == 1;
 }
 
-template <typename T1, typename T2>
-bool less_than(T1 a, T2 b) {
+template <typename T>
+bool less_than(T a, T b) {
   return a < b;
 }
 
-template <typename T1, typename T2>
-bool greater_than(T1 a, T2 b) {
+template <typename T>
+bool greater_than(T a, T b) {
   return a > b;
 }
 
