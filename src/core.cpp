@@ -155,6 +155,32 @@ auto map(Output f, std::vector<Input> v) {
   return out;
 }
 
+template <typename K, typename V>
+std::map<K, V> zipmap(std::vector<K> keys, std::vector<V> vals) {
+  std::map<K,V> out;
+  if (keys.size() != vals.size()) {return out;}
+  for (int i = 0; i < keys.size(); i++) {
+    out.insert(std::pair(keys[i],vals[i]));
+  }
+  return out;
+}
+
+template <typename Input, class Output>
+std::vector<Output> map_indexed(std::function<Output(const size_t, const Input)> f, std::vector<Input> v) {
+  std::vector<Output>out(v.size());
+  for (size_t i = 0; i < v.size(); i++)
+    out[i] = f(i,v[i]);
+  return out;
+}
+
+template <typename Input, class Output>
+auto map_indexed(Output f, std::vector<Input> v) {
+  std::vector<decltype(f(std::declval<size_t>(),std::declval<Input>()))>out(v.size());
+  for (size_t i = 0; i < v.size(); i++)
+    out[i] = f(i,v[i]);
+  return out;
+}
+
 template <typename T>
 std::vector<T> filter(std::function<bool(const T)> f, std::vector<T> v) {
   std::vector<T> out;
@@ -289,14 +315,4 @@ template <typename K, typename V>
 std::map<K, V> dissoc(std::map<K, V> m, K key) {
   m.erase(key);
   return m;
-}
-
-template <typename K, typename V>
-std::map<K, V> zipmap(std::vector<K> keys, std::vector<V> vals) {
-  std::map<K,V> out;
-  if (keys.size() != vals.size()) {return out;}
-  for (int i = 0; i < keys.size(); i++) {
-    out.insert(std::pair(keys[i],vals[i]));
-  }
-  return out;
 }

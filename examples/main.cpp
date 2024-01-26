@@ -97,6 +97,9 @@ int main() {
   prn("zipmap");
   prnm(zipmap(v1,std::vector<std::string>{"hi","bye","nope"}));
 
+  prn("map_indexed");
+  prnv(map_indexed([](int idx, std::string s){return std::to_string(idx) + ": " + s;},std::vector<std::string>{"hi","bye","nope"}));
+
   prn("vector is unchanged:");
   prnv(v1);
 
