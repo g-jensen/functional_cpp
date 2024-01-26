@@ -199,6 +199,24 @@ std::vector<T> filter(Output f, std::vector<T> v) {
   return out;
 }
 
+template <typename T>
+std::vector<T> filter_indexed(std::function<bool(size_t,const T)> f, std::vector<T> v) {
+  std::vector<T> out;
+  for (size_t i = 0; i < v.size(); i++)
+    if (f(i,v[i]))
+      out.push_back(v[i]);
+  return out;
+}
+
+template <typename T, class Output>
+std::vector<T> filter_indexed(Output f, std::vector<T> v) {
+  std::vector<T> out;
+  for (size_t i = 0; i < v.size(); i++)
+    if (f(i,v[i]))
+      out.push_back(v[i]);
+  return out;
+}
+
 template <class F>
 void repeatedly(F f, size_t n) {
   for (int i = 0; i < n; i++)

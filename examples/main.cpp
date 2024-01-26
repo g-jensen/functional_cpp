@@ -100,6 +100,9 @@ int main() {
   prn("map_indexed");
   prnv(map_indexed([](int idx, std::string s){return std::to_string(idx) + ": " + s;},std::vector<std::string>{"hi","bye","nope"}));
 
+  prn("filter_indexed");
+  prnv(filter_indexed([](int idx, int val){return is_even(idx) || is_even(val);},std::vector<int>{1,1,2,2,3,3}));
+
   prn("vector is unchanged:");
   prnv(v1);
 
