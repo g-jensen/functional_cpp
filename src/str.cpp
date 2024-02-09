@@ -42,3 +42,16 @@ std::vector<std::string> inline str_split(std::string s, char delimiter) {
     out.push_back(str);
     return out;
 }
+
+std::string inline str_join(std::vector<std::string> v, char delimiter) {
+  std::string out = "";
+  for (size_t i = 0; i < v.size()-1; i++) {
+    out += v[i] + delimiter;
+  }
+  out += v[v.size()-1];
+  return out;
+}
+
+bool inline str_empty(std::string s) {
+  return s.size() == 0;
+}

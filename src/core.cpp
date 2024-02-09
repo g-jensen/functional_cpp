@@ -226,6 +226,24 @@ std::vector<T> inline filter(Output f, std::vector<T> v) {
 }
 
 template <typename T>
+std::vector<T> inline remove(std::function<bool(const T)> f, std::vector<T> v) {
+  std::vector<T> out;
+  for (auto i : v)
+    if (!f(i))
+      out.push_back(i);
+  return out;
+}
+
+template <typename T, class Output>
+std::vector<T> inline remove(Output f, std::vector<T> v) {
+  std::vector<T> out;
+  for (auto i : v)
+    if (!f(i))
+      out.push_back(i);
+  return out;
+}
+
+template <typename T>
 std::vector<T> inline filter_indexed(std::function<bool(size_t,const T)> f, std::vector<T> v) {
   std::vector<T> out;
   for (size_t i = 0; i < v.size(); i++)
