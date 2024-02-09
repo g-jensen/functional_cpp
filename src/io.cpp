@@ -4,18 +4,18 @@
 #include <vector>
 #include <map>
 
-void prn() {
+void inline prn() {
   std::cout << std::endl;
 }
 
 template <typename T, typename... Types>
-void prn(T val, Types... vals) {
+void inline prn(T val, Types... vals) {
   std::cout << val << " ";
   prn(vals...);
 }
 
 template <class T>
-void prnv(std::vector<T> vec) {
+void inline prnv(std::vector<T> vec) {
   std::cout << '[';
   for (int i = 0; i < vec.size(); i++) {
     std::cout << vec[i];
@@ -25,7 +25,7 @@ void prnv(std::vector<T> vec) {
 };
 
 template <typename K, typename V>
-void prnm(std::map<K,V> m) {
+void inline prnm(std::map<K,V> m) {
   size_t size = m.size();
   std::cout << '{';
   int i = 1;
@@ -38,13 +38,13 @@ void prnm(std::map<K,V> m) {
 }
 
 template <typename T>
-T read() {
+T inline read() {
   T in;
   std::cin >> in;
   return in;
 }
 
-std::string read_line() {
+std::string inline read_line() {
   std::string in;
   std::getline(std::cin,in);
   return in;
