@@ -132,6 +132,16 @@ T inline last(T* v, size_t size) {
 }
 
 template <typename T>
+std::vector<T> inline drop(size_t count, std::vector<T> v) {
+  return std::vector<T>(v.begin()+count,v.end());
+}
+
+template <typename T>
+std::vector<T> inline rest(std::vector<T> v) {
+  return drop(1,v);
+}
+
+template <typename T>
 size_t inline count(std::vector<T> v) {
   return v.size();
 }

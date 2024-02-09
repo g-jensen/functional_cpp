@@ -54,6 +54,12 @@ int main() {
   prn(first(v1));
   prn(last(v1));
 
+  prn("drop:");
+  prnv(drop(2,v1));
+
+  prn("rest:");
+  prnv(rest(v1));
+
   prn("assoc vec:");
   prnv(assoc(v1,0,2));
 
